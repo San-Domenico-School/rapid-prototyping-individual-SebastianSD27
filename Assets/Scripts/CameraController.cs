@@ -7,11 +7,12 @@ using UnityEngine;
  * The camera follow and be a part of the Vehicle
  * 
  * Sebastian Balakier
- * 9/4/2024
+ * September 11, 2024 Version 1.0
 **********************************************/
 
 public class CameraController : MonoBehaviour
 {
+    [Tooltip("Drag Vehicle onto Vehicle Transform")]
     [SerializeField] private Transform vehicleTransform;   // Holds the Transform component of the player
     private Vector3 offset;   // Holds the position vector that  the camera will maintain from the player
 
@@ -27,7 +28,7 @@ public class CameraController : MonoBehaviour
         FollowPlayer();
     }
 
-    // Assigns the correct offset to the camera position
+    // Updates camera position per frame just after Update
     private void FollowPlayer()
     {
         transform.position = vehicleTransform.position + offset;
